@@ -2,24 +2,28 @@
 # apt install mpg123
 
 import os
+import random
 
 def main():
     # Get file list
-    path = "/home/sarah/Music/"
-    dir_list = os.listdir(path)
+    folder_path = "/home/sarah/Music/"
+    song_list = os.listdir(folder_path)
 
-    #get a song
-    filename = dir_list[0]
-    print(filename)
+    # Shuffle
+    random.shuffle(song_list)
 
-    # escape spaces by wrapping in quotes
-    fullpath = path + '"' + filename + '"'
- 
-    # Play the song
-    os.system('mpg123 ' + fullpath)
+    for filename in song_list:
+        #get a song
+        print(filename)
 
-    # on mac afplay stands for audio file play
-    # os.system("afplay " + file_name)
+        # escape spaces by wrapping in quotes
+        full_path = folder_path + '"' + filename + '"'
+    
+        # Play the song
+        os.system('mpg123 ' + full_path)
+
+        # on mac afplay stands for audio file play
+        # os.system("afplay " + file_name)
 
 
 main()
