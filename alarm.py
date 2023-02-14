@@ -4,9 +4,20 @@
 import os
 
 def main():
-    # location of the mp3 file
-    file_name = "suprabatham.mp3"
-    os.system("mpg123 " + file_name) #on linux
+    # Get file list
+    path = "/home/sarah/Music/"
+    dir_list = os.listdir(path)
+
+    #get a song
+    filename = dir_list[0]
+    print(filename)
+
+    # escape spaces by wrapping in quotes
+    fullpath = path + '"' + filename + '"'
+ 
+    # Play the song
+    os.system('mpg123 ' + fullpath)
+
     # on mac afplay stands for audio file play
     # os.system("afplay " + file_name)
 
